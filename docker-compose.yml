@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  main:
+    build: ./dockermain/
+    ports:
+      - "8080:8080"
+    networks:
+      - main_network
+    depends_on:
+      - base64
+
+
+  base64:
+    build: ./docker64/
+    ports:
+      - "6464:6464"
+    networks:
+      - main_network
+
+networks:
+  main_network:
